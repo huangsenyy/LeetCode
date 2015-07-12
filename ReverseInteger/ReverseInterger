@@ -1,0 +1,20 @@
+class Solution:
+    # @param {integer} x
+    # @return {integer}
+    def reverse(self, x):
+        if x > 2147483647:
+            return 0
+        r = 0
+        negative = False
+        if x < 0:
+            negative = True
+            x = -x
+        while x >= 10:
+            r = (r+x%10) * 10
+            x = x/10
+        r += x
+        if r > 2147483647:
+            return 0
+        
+        return -r if negative else r
+
